@@ -1,6 +1,6 @@
 // Generates a personalized story for children.
 // The program ask for a female name, a male name, and a location.
-// The program then display a story containing the collected information.
+// The program then display a story containing the collected informations.
 
 #include <iostream>
 
