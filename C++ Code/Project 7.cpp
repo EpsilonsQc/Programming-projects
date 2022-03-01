@@ -1,4 +1,4 @@
-// Write a program that displays the numbers 1 through 4 on the same line, separated by spaces. Use 4 output instructions.
+// Displays the numbers 1 through 4 on the same line, separated by spaces. Use 4 output instructions.
 
 #include <iostream>
 
