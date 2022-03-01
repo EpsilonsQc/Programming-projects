@@ -1,5 +1,5 @@
 # Collège de Bois-de-Boulogne (Programmation I)
 
-## Alexandre Perreault
+Alexandre Perreault
 
 Étudiant AEC Programmeur de jeux vidéo
