@@ -24,5 +24,7 @@ int main()
 
     cout << "Here's the digit of your five-digit number : " << digit_1 << "   " << digit_2 << "   " << digit_3 << "   " << digit_4 << "   " << digit_5 << endl << endl;
 
+    system("pause");
+
     return 0;
 }
