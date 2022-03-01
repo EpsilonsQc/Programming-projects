@@ -1,5 +1,4 @@
-// Write the program that displays the following form :
-// [I know i could have used /* COMMENT */ but I wanted to keep the comment more readable since it involve many *.]
+// Displays the following form :
 
 // *
 // ***
