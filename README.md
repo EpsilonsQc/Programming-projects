@@ -1,6 +1,6 @@
 # Collège de Bois-de-Boulogne (Programming projects)
 
- This repositories is a collection of all the programming projects i'm working on at school.
+**This repositories is a collection of all the programming projects i'm working on at school.**
 
 - :fleur_de_lis: Hi, I’m **Alexandre Perreault** (**@EpsilonsQc**)
 - :crossed_swords: I’m interested in games development
