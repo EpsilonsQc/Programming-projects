@@ -20,5 +20,5 @@
 *.lastbuildstate       # LASTBUILDSTATE File
 
 # Ignore the Debug directory
-x64/Debug/** # All files within the Debug directory
-x64/Debug/   # Debug directory
+x64/Debug/**           # All files within the Debug directory
+x64/Debug/             # Debug directory
