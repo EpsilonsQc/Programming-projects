@@ -4,12 +4,12 @@
 *.vcxproj              # VC++ Project
 
 # Ignore IDE specific files [release]
-*.recipe               # RECIPE File
 *.iobj                 # IOBJ File
 *.ipdb                 # IPDB File
 *.log                  # Text Document (Log)
 *.obj                  # Object File
 *.pdb                  # Program Debug Database
+*.recipe               # RECIPE File
 
 # Ignore IDE specific files [debug]
 *.idb                  # VC++ Minimum Rebuild Dependency File
