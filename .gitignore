@@ -1,23 +1,23 @@
 # Ignore IDE specific files [source]
-*.vcxproj              # VC++ Project
 *.filters              # VC++ Project Filters File
 *.user                 # Per-User Project Options File
+*.vcxproj              # VC++ Project
 
 # Ignore IDE specific files [release]
 *.recipe               # RECIPE File
 *.iobj                 # IOBJ File
 *.ipdb                 # IPDB File
-*.obj                  # Object File
 *.log                  # Text Document (Log)
+*.obj                  # Object File
 *.pdb                  # Program Debug Database
 
 # Ignore IDE specific files [debug]
-*.ilk                  # Incremental Linker File
 *.idb                  # VC++ Minimum Rebuild Dependency File
+*.ilk                  # Incremental Linker File
 
 # Ignore TLOG
-*.tlog                 # TLOG File
 *.lastbuildstate       # LASTBUILDSTATE File
+*.tlog                 # TLOG File
 
 # Ignore the Debug directory
 x64/Debug/**           # All files within the Debug directory
