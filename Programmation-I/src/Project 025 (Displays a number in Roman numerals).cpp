@@ -12,48 +12,47 @@ int main()
     while (true)
     {
 
-     int number = 0;
-     int storeNumber = 0;
-
-     int thousands = 0;
-     int hundreds = 0;
-     int tens = 0;
-     int units = 0;
+     unsigned int nbrInput = 0;
+     unsigned int preserveNbr = 0;
+     unsigned int thousands = 0;
+     unsigned int hundreds = 0;
+     unsigned int tens = 0;
+     unsigned int units = 0;
 
     cout << "Please enter a number between 1 and 4999 (type 0 to exit): ";
-    cin >> number;
-    storeNumber = number;
+    cin >> nbrInput;
+    preserveNbr = nbrInput;
 
-    if (number == 0)
+    if (nbrInput == 0)
     { 
         break;
     }
 
-    if (number >= 1000)
+    if (nbrInput >= 1000)
     {
-        thousands = number / 1000;
-        number = number - (thousands * 1000);
+        thousands = nbrInput / 1000;
+        nbrInput = nbrInput - (thousands * 1000);
     }
 
-    if (number >= 100)
+    if (nbrInput >= 100)
     {
-        hundreds = number / 100;
-        number = number - (hundreds * 100);
+        hundreds = nbrInput / 100;
+        nbrInput = nbrInput - (hundreds * 100);
     }
 
-    if (number >= 10)
+    if (nbrInput >= 10)
     {
-        tens = number / 10;
-        number = number - (tens * 10);
+        tens = nbrInput / 10;
+        nbrInput = nbrInput - (tens * 10);
     }
 
-    if (number > 0)
+    if (nbrInput > 0)
     {
-        units = number;
-        number = number - units;
+        units = nbrInput;
+        nbrInput = nbrInput - units;
     }
 
-    cout << "In Roman Numerals, the number " << storeNumber << " is ";
+    cout << "In Roman Numerals, the number " << preserveNbr << " is ";
 
     for (int i = thousands; i > 0; --i)
     {
@@ -101,6 +100,9 @@ int main()
             cout << "C";
         }
         else if (i == 0)
+        {
+        }
+
     }
     
     for (int i = tens; i > 0; --i)
@@ -144,6 +146,8 @@ int main()
             cout << "X";
         }
         else if (i == 0)
+        {
+        }
     }
     
     for (int i = units; i > 0; --i)
@@ -187,6 +191,8 @@ int main()
             cout << "I";
         }
         else if (i == 0)
+        {
+        }
     }
 
     cout << endl << endl;
