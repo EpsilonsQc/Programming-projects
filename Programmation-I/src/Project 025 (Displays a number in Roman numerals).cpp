@@ -12,47 +12,47 @@ int main()
     while (true)
     {
 
-     unsigned int nbrInput = 0;
-     unsigned int preserveNbr = 0;
+     unsigned int userInput = 0;
+     unsigned int preserveInput = 0;
      unsigned int thousands = 0;
      unsigned int hundreds = 0;
      unsigned int tens = 0;
      unsigned int units = 0;
 
     cout << "Please enter a number between 1 and 4999 (type 0 to exit): ";
-    cin >> nbrInput;
-    preserveNbr = nbrInput;
+    cin >> userInput;
+    preserveInput = userInput;
 
-    if (nbrInput == 0)
+    if (userInput == 0)
     { 
         break;
     }
 
-    if (nbrInput >= 1000)
+    if (userInput >= 1000)
     {
-        thousands = nbrInput / 1000;
-        nbrInput = nbrInput - (thousands * 1000);
+        thousands = userInput / 1000;
+        userInput = userInput - (thousands * 1000);
     }
 
-    if (nbrInput >= 100)
+    if (userInput >= 100)
     {
-        hundreds = nbrInput / 100;
-        nbrInput = nbrInput - (hundreds * 100);
+        hundreds = userInput / 100;
+        userInput = userInput - (hundreds * 100);
     }
 
-    if (nbrInput >= 10)
+    if (userInput >= 10)
     {
-        tens = nbrInput / 10;
-        nbrInput = nbrInput - (tens * 10);
+        tens = userInput / 10;
+        userInput = userInput - (tens * 10);
     }
 
-    if (nbrInput > 0)
+    if (userInput > 0)
     {
-        units = nbrInput;
-        nbrInput = nbrInput - units;
+        units = userInput;
+        userInput = userInput - units;
     }
 
-    cout << "In Roman Numerals, the number " << preserveNbr << " is ";
+    cout << "In Roman Numerals, the number " << preserveInput << " is ";
 
     for (int i = thousands; i > 0; --i)
     {
@@ -102,7 +102,6 @@ int main()
         else if (i == 0)
         {
         }
-
     }
     
     for (int i = tens; i > 0; --i)
