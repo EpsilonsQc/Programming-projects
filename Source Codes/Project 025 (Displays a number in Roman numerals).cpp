@@ -6,19 +6,19 @@ using namespace std;
 
 int main()
 {
-    int number = 0;
-    int storeNumber = 0;
-
-    int thousands = 0;
-    int hundreds = 0;
-    int tens = 0;
-    int units = 0;
-
     cout << ":: ROMAN NUMERALS CONVERTER ::" << endl;
     cout << "This small piece of software will convert decimal to Roman numerals for you." << endl << endl;
 
     while (true)
     {
+
+     int number = 0;
+     int storeNumber = 0;
+
+     int thousands = 0;
+     int hundreds = 0;
+     int tens = 0;
+     int units = 0;
 
     cout << "Please enter a number between 1 and 4999 (type 0 to exit): ";
     cin >> number;
@@ -29,28 +29,24 @@ int main()
         break;
     }
 
-    // thousands
     if (number >= 1000)
     {
         thousands = number / 1000;
         number = number - (thousands * 1000);
     }
 
-    // hundreds
     if (number >= 100)
     {
         hundreds = number / 100;
         number = number - (hundreds * 100);
     }
 
-    // tens
     if (number >= 10)
     {
         tens = number / 10;
         number = number - (tens * 10);
     }
 
-    // units
     if (number > 0)
     {
         units = number;
@@ -59,13 +55,11 @@ int main()
 
     cout << "In Roman Numerals, the number " << storeNumber << " is ";
 
-    // thousands
     for (int i = thousands; i > 0; --i)
     {
         cout << "M";
     }
 
-    // hundreds
     for (int i = hundreds; i > 0; --i)
     {
         if (i == 9)
@@ -107,12 +101,8 @@ int main()
             cout << "C";
         }
         else if (i == 0)
-        {
-            // DO NOTHING
-        }
     }
     
-    // tens
     for (int i = tens; i > 0; --i)
     {
         if (i == 9)
@@ -154,12 +144,8 @@ int main()
             cout << "X";
         }
         else if (i == 0)
-        {
-            // DO NOTHING
-        }
     }
     
-    // units
     for (int i = units; i > 0; --i)
     {
         if (i == 9)
@@ -201,9 +187,6 @@ int main()
             cout << "I";
         }
         else if (i == 0)
-        {
-            // DO NOTHING
-        }
     }
 
     cout << endl << endl;

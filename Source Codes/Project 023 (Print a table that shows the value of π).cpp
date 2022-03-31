@@ -10,11 +10,11 @@
 
 using namespace std;
 
-int calculatePi(); // prototype de fonction [déclare l'existance d'une fonction]
+int calculatePi();
 
-int main() // fonction main
+int main()
 {
-    int howMany = calculatePi(); // appel de la fonction calculatePi() dans le main
+    int howMany = calculatePi();
 
     cout << endl << "The value " << "'3.14159'" << " was achieved after a total of " << howMany << " operations." << endl << endl;
 
@@ -23,7 +23,7 @@ int main() // fonction main
     return 0;
 }
 
-int calculatePi() // fonction suivit de son body
+int calculatePi()
 {   
     int maxOpCount = 200000;
     int lineNumber = 1;
@@ -53,5 +53,5 @@ int calculatePi() // fonction suivit de son body
         }
     }
 
-    return lineNumber; // ce que la fonction retourne
+    return lineNumber;
 }
