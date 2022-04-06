@@ -25,30 +25,29 @@ int main()
 
 int calculatePi()
 {   
-    int maxOpCount = 200000;
     int lineNumber = 1;
     int divValue = 3;
     bool flag = false;
     double pi = 4.0;
 
-    for (int i = 1; i <= maxOpCount; ++i)
+    for (int termsCount = 1; termsCount <= 200000; ++termsCount)
     {
-        if (i % 2 == 0)
+        if (termsCount % 2 == 0)
         {
             pi += 4.0 / divValue;
             divValue += 2;
         }
-        else
+        else if (termsCount % 2 == 1)
         {
             pi -= 4.0 / divValue;
             divValue += 2;
         }
 
-        cout << "Line # " << i << " -> " << setprecision(10) << pi << endl;
+        cout << "Line # " << termsCount << " -> " << setprecision(10) << pi << endl;
 
         if ((static_cast<int>(pi * 100000) == 314159) && !flag)
         {
-            lineNumber = i;
+            lineNumber = termsCount;
             flag = true;
         }
     }
