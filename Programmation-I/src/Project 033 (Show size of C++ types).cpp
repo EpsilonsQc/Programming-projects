@@ -15,7 +15,7 @@ int main()
     cout << "Size of LONG LONG:    " << sizeof(long long) << " bytes" << endl;
     cout << "Size of FLOAT:        " << sizeof(float) << " bytes" << endl;
     cout << "Size of DOUBLE:       " << sizeof(double) << " bytes" << endl;
-    cout << "Size of STRING:      " << sizeof(string) << " bytes" << endl << endl;
+    cout << "Size of STRING:       " << sizeof(string) << " bytes" << endl << endl;
 
     system("pause");
 
