@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// Apple.h (Class definition | Contain function prototypes AND data members)
+// Apple.h (Class definition | Function prototypes and data members)
 
 class Apple
 {

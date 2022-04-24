@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// Direction.h (Class definition | Contain function prototypes AND data members)
+// Direction.h (Class definition | Function prototypes and data members)
 
 class Direction
 {

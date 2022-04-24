@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// Snake.h (Class definition | Contain function prototypes AND data members)
+// Snake.h (Class definition | Function prototypes and data members)
 
 class Snake
 {

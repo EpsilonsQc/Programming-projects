@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// Player.h (Class definition | Contain function prototypes AND data members)
+// Player.h (Class definition | Function prototypes and data members)
 
 #include <string>
 

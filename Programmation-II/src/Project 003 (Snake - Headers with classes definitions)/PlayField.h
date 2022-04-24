@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// PlayField.h (Class definition | Contain function prototypes AND data members)
+// PlayField.h (Class definition | Function prototypes and data members)
 
 class PlayField
 {

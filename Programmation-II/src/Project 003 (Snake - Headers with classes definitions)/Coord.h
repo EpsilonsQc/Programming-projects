@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// Coord.h (Class definition | Contain function prototypes AND data members)
+// Coord.h (Class definition | Function prototypes and data members)
 
 class Coord
 {
