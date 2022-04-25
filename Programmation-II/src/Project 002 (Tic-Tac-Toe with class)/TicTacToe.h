@@ -32,7 +32,6 @@ public :
 
 private:
 
-	// Private data members
 	bool humanIsPlaying;
 	bool endGame;
 	bool isFirstGame;
