@@ -7,44 +7,38 @@ using namespace std;
 
 int main()
 {
-	// Create an object of type TicTacToe
-	TicTacToe TicTacToeObject;
+	TicTacToe TicTacToeObj;
 
-	do
+	while (TicTacToeObj.getContinueOrNot() != 'Q' && TicTacToeObj.getContinueOrNot() != 'q');
 	{
-		TicTacToeObject.determineWhoPlayFirst();
-		TicTacToeObject.resetTicTacToe();
-		TicTacToeObject.drawTicTacToe();
+		TicTacToeObj.determineWhoPlayFirst();
+		TicTacToeObj.resetTicTacToe();
+		TicTacToeObj.displayTicTacToe();
 
-		while (TicTacToeObject.endGame == false)
-		{
-			// Player turn
-			if (TicTacToeObject.determineWhoWillPlay == 1) 
+		while (!TicTacToeObj.getEndGame())
+		{	
+			if (TicTacToeObj.getDetermineWhoWillPlay() == 1) // Player turn
 			{
-				TicTacToeObject.assignPlayersToken();
-				TicTacToeObject.playerTurn();
-				TicTacToeObject.drawTicTacToe();
-				TicTacToeObject.playerWin = TicTacToeObject.checkTicTacToe();
-				TicTacToeObject.winOrDrawMessages();
-				TicTacToeObject.determineWhoWillPlay = 2;
+				TicTacToeObj.assignPlayersToken();
+				TicTacToeObj.playerTurn();
+				TicTacToeObj.displayTicTacToe();
+				TicTacToeObj.checkWinCondition();
+				TicTacToeObj.displaywinOrDrawMsg();
+				TicTacToeObj.determineWhoPlayNext();
 			}
-			// Computer turn
-			else if (TicTacToeObject.determineWhoWillPlay == 2)
+			else if (TicTacToeObj.getDetermineWhoWillPlay() == 2) // Computer turn
 			{
-				TicTacToeObject.pressEnterToContinue();
-				TicTacToeObject.assignPlayersToken();
-				TicTacToeObject.cpuTurn();
-				TicTacToeObject.drawTicTacToe();
-				TicTacToeObject.cpuHasPlayed();
-				TicTacToeObject.computerWin = TicTacToeObject.checkTicTacToe();
-				TicTacToeObject.winOrDrawMessages();
-				TicTacToeObject.determineWhoWillPlay = 1;
+				TicTacToeObj.pressEnterToContinue();
+				TicTacToeObj.assignPlayersToken();
+				TicTacToeObj.cpuTurn();
+				TicTacToeObj.displayTicTacToe();
+				TicTacToeObj.cpuHasPlayed();
+				TicTacToeObj.checkWinCondition();
+				TicTacToeObj.displaywinOrDrawMsg();
+				TicTacToeObj.determineWhoPlayNext();
 			}
 		}
-
-		TicTacToeObject.startNewGame();
-
-	} while (TicTacToeObject.continueOrNot != 'q' && TicTacToeObject.continueOrNot != 'Q');
-
-	TicTacToeObject.endOfProgram();
+		TicTacToeObj.startNewGame();
+	} 
+	TicTacToeObj.endOfProgram();
 }

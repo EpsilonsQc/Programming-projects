@@ -8,35 +8,36 @@ public :
 	TicTacToe();
 
 	void determineWhoPlayFirst();
+	void determineWhoPlayNext();
 	void verifyIsFirstGame();
-	void drawTicTacToe();
 	void resetTicTacToe();
+	void displayTicTacToe();
 	void playerTurn();
 	void cpuTurn();
 	void cpuHasPlayed();
-	void placeTokenOnBoard();
 	void assignPlayersToken();
-	void winOrDrawMessages();
+	void placeTokenOnBoard();
+	void checkWinCondition();
+	void displaywinOrDrawMsg();
 	void pressEnterToContinue();
 	void startNewGame();
-	bool checkTicTacToe();
-	int checkForOccupiedCase(int);
+	bool checkForTicTacToe();
+	bool getEndGame();
+	char getContinueOrNot();
+	int getDetermineWhoWillPlay();
 	int checkPlayerInput();
 	int checkCpuInput();
 	int endOfProgram();
-
-	// Public data members
-	bool endGame;
-	bool playerWin;
-	bool computerWin;
-	char continueOrNot;
-	int determineWhoWillPlay;
+	int checkForOccupiedCase(int);
 
 private:
 
 	// Private data members
 	bool humanIsPlaying;
+	bool endGame;
 	bool isFirstGame;
+	bool playerWin;
+	bool computerWin;
 	char case_1;
 	char case_2;
 	char case_3;
@@ -46,8 +47,10 @@ private:
 	char case_7;
 	char case_8;
 	char case_9;
+	char continueOrNot;
 	char playersToken;
 	int caseTransfer;
+	int determineWhoWillPlay;
 	int playerMove;
 	int cpuMove;
 };
