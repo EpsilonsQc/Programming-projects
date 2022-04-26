@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// Main.cpp (Main function | Program execution begins and ends there)
+// Main.cpp (Main function | Program execution begins and ends there) 
 
 // Please look at the headers files
 
