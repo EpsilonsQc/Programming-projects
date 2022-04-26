@@ -1,5 +1,5 @@
 // Snake - Headers with classes definitions
-// Input.h (Class definition | Function prototypes and data members)
+// Input.h (Class definition | Function prototypes and data members) 
 
 class Input
 {
