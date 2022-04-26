@@ -1,30 +1,34 @@
 // Tic-Tac-Toe with class
 // TicTacToe.h (Class definition | Function prototypes and data members)
 
+enum class playerType { notDetermined, human, computer };
+
 class TicTacToe
 {
-public :
+public:
 
 	TicTacToe();
 
-	void determineWhoPlayFirst();
+	void randomizeWhoPlayFirst();
 	void determineWhoPlayNext();
 	void verifyIsFirstGame();
 	void resetTicTacToe();
 	void displayTicTacToe();
 	void playerTurn();
 	void cpuTurn();
-	void cpuHasPlayed();
-	void assignPlayersToken();
+	void displayCpuHasPlayed();
+	void assignTokenType();
 	void placeTokenOnBoard();
 	void checkWinCondition();
-	void displaywinOrDrawMsg();
+	void displayWinOrDrawMsg();
 	void pressEnterToContinue();
-	void startNewGame();
+	void whoPlayedFirst();
+	void promptStartNewGame();
 	bool checkForTicTacToe();
-	bool getEndGame();
+	bool gameOver();
+	bool continueToPlay();
+	bool determineWhoWillPlay(playerType);
 	char getContinueOrNot();
-	int getDetermineWhoWillPlay();
 	int checkPlayerInput();
 	int checkCpuInput();
 	int endOfProgram();
@@ -32,11 +36,14 @@ public :
 
 private:
 
+	playerType selectPlayer;
 	bool humanIsPlaying;
-	bool endGame;
+	bool theGameIsOver;
 	bool isFirstGame;
 	bool playerWin;
 	bool computerWin;
+	bool startNewGame;
+	bool humanPlayedFirst;
 	char case_1;
 	char case_2;
 	char case_3;
@@ -49,7 +56,6 @@ private:
 	char continueOrNot;
 	char playersToken;
 	int caseTransfer;
-	int determineWhoWillPlay;
 	int playerMove;
 	int cpuMove;
 };

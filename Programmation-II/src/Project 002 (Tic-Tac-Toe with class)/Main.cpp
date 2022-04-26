@@ -9,36 +9,41 @@ int main()
 {
 	TicTacToe TicTacToeObj;
 
-	while (TicTacToeObj.getContinueOrNot() != 'Q' && TicTacToeObj.getContinueOrNot() != 'q');
+	do 
 	{
-		TicTacToeObj.determineWhoPlayFirst();
+		TicTacToeObj.randomizeWhoPlayFirst();
+		TicTacToeObj.whoPlayedFirst();
 		TicTacToeObj.resetTicTacToe();
 		TicTacToeObj.displayTicTacToe();
 
-		while (!TicTacToeObj.getEndGame())
-		{	
-			if (TicTacToeObj.getDetermineWhoWillPlay() == 1) // Player turn
+		while (!TicTacToeObj.gameOver())
+		{
+			if (TicTacToeObj.determineWhoWillPlay(playerType::human))
 			{
-				TicTacToeObj.assignPlayersToken();
+				TicTacToeObj.assignTokenType();
 				TicTacToeObj.playerTurn();
+				TicTacToeObj.placeTokenOnBoard();
 				TicTacToeObj.displayTicTacToe();
 				TicTacToeObj.checkWinCondition();
-				TicTacToeObj.displaywinOrDrawMsg();
+				TicTacToeObj.displayWinOrDrawMsg();
 				TicTacToeObj.determineWhoPlayNext();
 			}
-			else if (TicTacToeObj.getDetermineWhoWillPlay() == 2) // Computer turn
+			else if (TicTacToeObj.determineWhoWillPlay(playerType::computer))
 			{
-				TicTacToeObj.pressEnterToContinue();
-				TicTacToeObj.assignPlayersToken();
+				TicTacToeObj.assignTokenType();
 				TicTacToeObj.cpuTurn();
+				TicTacToeObj.placeTokenOnBoard();
 				TicTacToeObj.displayTicTacToe();
-				TicTacToeObj.cpuHasPlayed();
+				TicTacToeObj.displayCpuHasPlayed();
 				TicTacToeObj.checkWinCondition();
-				TicTacToeObj.displaywinOrDrawMsg();
+				TicTacToeObj.displayWinOrDrawMsg();
 				TicTacToeObj.determineWhoPlayNext();
 			}
 		}
-		TicTacToeObj.startNewGame();
-	} 
+
+		TicTacToeObj.promptStartNewGame();
+
+	} while (TicTacToeObj.continueToPlay());
+
 	TicTacToeObj.endOfProgram();
 }

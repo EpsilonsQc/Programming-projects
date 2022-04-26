@@ -8,11 +8,14 @@ using namespace std;
 
 // Default constructor (CTOR) with no parameter
 TicTacToe::TicTacToe() :
-	endGame(false),
+	selectPlayer(playerType::notDetermined),
+	theGameIsOver(false),
 	playerWin(false),
 	computerWin(false),
 	humanIsPlaying(true),
 	isFirstGame(true),
+	startNewGame(true),
+	humanPlayedFirst(true),
 	case_1('1'),
 	case_2('2'),
 	case_3('3'),
@@ -24,7 +27,6 @@ TicTacToe::TicTacToe() :
 	case_9('9'),
 	playersToken(' '),
 	continueOrNot(' '),
-	determineWhoWillPlay(0),
 	caseTransfer(0),
 	playerMove(0),
 	cpuMove(0)
@@ -33,9 +35,28 @@ TicTacToe::TicTacToe() :
 }
 
 // Determine who will play first for a new game (randomized)
-void TicTacToe::determineWhoPlayFirst()
+void TicTacToe::randomizeWhoPlayFirst()
 {
-	determineWhoWillPlay = 1 + rand() % 2;
+	selectPlayer = rand() % 2 == 0 ? playerType::human : playerType::computer;
+}
+
+// Keep in memory who was the first player
+void TicTacToe::whoPlayedFirst()
+{
+	if (selectPlayer == playerType::human)
+	{
+		humanPlayedFirst = true;
+	}
+	else if (selectPlayer == playerType::computer)
+	{
+		humanPlayedFirst = false;
+	}
+}
+
+// Return selectPlayer
+bool TicTacToe::determineWhoWillPlay(playerType someType)
+{
+	return selectPlayer == someType;
 }
 
 // Determine who will play after a turn
@@ -43,36 +64,30 @@ void TicTacToe::determineWhoPlayNext()
 {
 	if (humanIsPlaying)
 	{
-		determineWhoWillPlay = 2;
+		selectPlayer = playerType::computer;
 	}
 	else if (!humanIsPlaying)
 	{
-		determineWhoWillPlay = 1;
+		selectPlayer = playerType::human;
 	}
-}
-
-// Reset the game board for a fresh game start
-void TicTacToe::resetTicTacToe()
-{
-	case_1 = '1';
-	case_2 = '2';
-	case_3 = '3';
-	case_4 = '4';
-	case_5 = '5';
-	case_6 = '6';
-	case_7 = '7';
-	case_8 = '8';
-	case_9 = '9';
 }
 
 // Assign players token according to who play first
-void TicTacToe::assignPlayersToken()
+void TicTacToe::assignTokenType()
 {
-	if (determineWhoWillPlay == 1)
+	if (selectPlayer == playerType::human && humanPlayedFirst == true)
 	{
 		playersToken = 'X';
 	}
-	else if (determineWhoWillPlay == 2)
+	else if (selectPlayer == playerType::human && humanPlayedFirst == false)
+	{
+		playersToken = 'O';
+	}
+	else if (selectPlayer == playerType::computer && humanPlayedFirst == false)
+	{
+		playersToken = 'X';
+	}
+	else if (selectPlayer == playerType::computer && humanPlayedFirst == true)
 	{
 		playersToken = 'O';
 	}
@@ -86,7 +101,6 @@ void TicTacToe::playerTurn()
 	playerMove = checkPlayerInput();
 
 	caseTransfer = checkForOccupiedCase(playerMove);
-	placeTokenOnBoard();
 }
 
 // Computer turn logic
@@ -97,11 +111,12 @@ void TicTacToe::cpuTurn()
 	cpuMove = checkCpuInput();
 
 	caseTransfer = checkForOccupiedCase(cpuMove);
-	placeTokenOnBoard();
+
+	pressEnterToContinue();
 }
 
 // Output what the computer has played.
-void TicTacToe::cpuHasPlayed()
+void TicTacToe::displayCpuHasPlayed()
 {
 	cout << "The *COMPUTER* played." << endl;
 	cout << "He placed a token on case * " << cpuMove << " * " << endl << endl;
@@ -286,20 +301,20 @@ bool TicTacToe::checkForTicTacToe()
 // Check win condition for player and CPU
 void TicTacToe::checkWinCondition()
 {
-	if (determineWhoWillPlay == 1)
+	if (selectPlayer == playerType::human)
 	{
 		playerWin = checkForTicTacToe();
 	}
-	else if (determineWhoWillPlay == 2)
+	else if (selectPlayer == playerType::computer)
 	{
 		computerWin = checkForTicTacToe();
 	}
 }
 
-// Return endGame
-bool TicTacToe::getEndGame()
+// Return theGameIsOver
+bool TicTacToe::gameOver()
 {
-	return endGame;
+	return theGameIsOver;
 }
 
 // Return continueOrNot
@@ -308,10 +323,18 @@ char TicTacToe::getContinueOrNot()
 	return continueOrNot;
 }
 
-// Return determineWhoWillPlay 
-int TicTacToe::getDetermineWhoWillPlay()
+// Reset the game board for a fresh game start
+void TicTacToe::resetTicTacToe()
 {
-	return determineWhoWillPlay;
+	case_1 = '1';
+	case_2 = '2';
+	case_3 = '3';
+	case_4 = '4';
+	case_5 = '5';
+	case_6 = '6';
+	case_7 = '7';
+	case_8 = '8';
+	case_9 = '9';
 }
 
 // Display the game board
@@ -340,14 +363,14 @@ void TicTacToe::verifyIsFirstGame()
 }
 
 // Display win or draw messages
-void TicTacToe::displaywinOrDrawMsg()
+void TicTacToe::displayWinOrDrawMsg()
 {
 	if (playerWin == true)
 	{
 		cout << "================" << endl;
 		cout << ":: PLAYER WIN ::" << endl;
 		cout << "================" << endl << endl;
-		endGame = true;
+		theGameIsOver = true;
 		playerWin = false;
 	}
 	else if (computerWin == true)
@@ -355,7 +378,7 @@ void TicTacToe::displaywinOrDrawMsg()
 		cout << "==================" << endl;
 		cout << ":: COMPUTER WIN ::" << endl;
 		cout << "==================" << endl << endl;
-		endGame = true;
+		theGameIsOver = true;
 		computerWin = false;
 	}
 	else if (playerWin == false && computerWin == false && case_1 != '1' && case_2 != '2' && case_3 != '3' && case_4 != '4' && case_5 != '5' && case_6 != '6' && case_7 != '7' && case_8 != '8' && case_9 != '9')
@@ -363,7 +386,7 @@ void TicTacToe::displaywinOrDrawMsg()
 		cout << "=================" << endl;
 		cout << ":: IT'S A DRAW ::" << endl;
 		cout << "=================" << endl << endl;
-		endGame = true;
+		theGameIsOver = true;
 	}
 }
 
@@ -390,7 +413,7 @@ void TicTacToe::pressEnterToContinue()
 }
 
 // Prompt the user to start a new game (restarts the loop)
-void TicTacToe::startNewGame()
+void TicTacToe::promptStartNewGame()
 {
 	cout << "Do you want to start a new game? (Press any key to CONTINUE | Press 'Q' to QUIT)" << endl;
 	cout << "Waiting for keyboard input: ";
@@ -399,7 +422,25 @@ void TicTacToe::startNewGame()
 
 	if (continueOrNot != 'q' && continueOrNot != 'Q')
 	{
-		endGame = false;
+		startNewGame = true;
+		theGameIsOver = false;
 		isFirstGame = false;
+	}
+	else
+	{
+		startNewGame = false;
+	}
+}
+
+// Determine if a new game will be started or not
+bool TicTacToe::continueToPlay()
+{
+	if (startNewGame == true)
+	{
+		return true;
+	}
+	else if (startNewGame == false)
+	{
+		return false;
 	}
 }
