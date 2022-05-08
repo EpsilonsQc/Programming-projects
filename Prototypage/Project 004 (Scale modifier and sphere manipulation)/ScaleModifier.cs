@@ -8,12 +8,12 @@ public class ScaleModifier : MonoBehaviour
 
     void OnEnable()
     {
-        RandomizeScale(); // Randomize scale on enable
+        RandomizeScale(); // OnEnable, randomize scale
     }
 
     void OnDisable()
     {
-        ChangeScale(); // Set defined by inspector scale on disable
+        ChangeScale(); // OnDisable, set a scale defined by the inspector
     }
 
     public void ChangeScale()
