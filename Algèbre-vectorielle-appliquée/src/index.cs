@@ -1,1 +1,0 @@
-Algèbre-vectorielle-appliquée
