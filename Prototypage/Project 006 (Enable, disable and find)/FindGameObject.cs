@@ -22,7 +22,7 @@ public class FindGameObject : MonoBehaviour
         // Tag are defined and assigned for each GameObject individually in the inspector
         myCylinder = GameObject.FindWithTag("CylinderTag");
 
-        // Find multiples GameObject with the same "Tag"
+        // Find multiples GameObjects with the same "Tag"
         // Tag are defined and assigned for each GameObject individually in the inspector
         MyObjectsArray = GameObject.FindGameObjectsWithTag ("GameObjectTag");
     }
