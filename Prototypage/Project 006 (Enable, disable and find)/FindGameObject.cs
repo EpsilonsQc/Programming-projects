@@ -16,7 +16,7 @@ public class FindGameObject : MonoBehaviour
         myCube = GameObject.Find("Cube");
 
         // Find a GameObject by name within a parent/child tree
-        mySphere = GameObject.Find("Cube/Sphere");
+        mySphere = GameObject.Find("All my objects/Find by name/Sphere");
 
         // Find a GameObject by tag
         // Tag are defined and assigned for each GameObject individually in the inspector
