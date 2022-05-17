@@ -1,4 +1,4 @@
-// Knight's tour - Brute force approaches
+// Knight's tour - Brute force approaches 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
