@@ -1,4 +1,4 @@
-// Palindromes - A palindrome is a string that’s spelled the same way forward and backward. 
+// Palindromes - A palindrome is a string thatâ€™s spelled the same way forward and backward.  
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
