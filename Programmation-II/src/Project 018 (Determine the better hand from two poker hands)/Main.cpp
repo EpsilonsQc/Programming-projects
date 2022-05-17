@@ -1,4 +1,4 @@
-// Determine the better hand from two poker hands
+// Determine the better hand from two poker hands 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
