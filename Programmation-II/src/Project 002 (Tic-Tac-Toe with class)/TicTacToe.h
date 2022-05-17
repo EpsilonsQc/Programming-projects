@@ -1,6 +1,8 @@
 // Tic-Tac-Toe with class
 // TicTacToe.h (Class definition | Function prototypes and data members)
 
+#pragma once
+
 enum class playerType { notDetermined, human, computer };
 
 class TicTacToe

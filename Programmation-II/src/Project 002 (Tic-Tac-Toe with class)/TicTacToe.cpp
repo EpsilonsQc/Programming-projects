@@ -1,8 +1,8 @@
 // Tic-Tac-Toe with class
 // TicTacToe.cpp (Implementation file | Constructor and member functions definitions)
 
-#include <iostream>
 #include "TicTacToe.h"
+#include <iostream>
 
 using namespace std;
 
