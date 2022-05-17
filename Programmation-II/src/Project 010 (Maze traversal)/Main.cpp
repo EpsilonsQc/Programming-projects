@@ -1,4 +1,4 @@
-// Maze traversal 
+// Maze traversal
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
