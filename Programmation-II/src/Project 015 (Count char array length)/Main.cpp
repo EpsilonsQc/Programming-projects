@@ -1,4 +1,4 @@
-// Count array of char length
+// Count array of char length 
 // Main.cpp (Main function | Program execution begins and ends there)
 
 #include <iostream>
