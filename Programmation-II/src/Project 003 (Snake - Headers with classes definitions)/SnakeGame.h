@@ -1,6 +1,8 @@
 // Snake - Headers with classes definitions
 // SnakeGame.h (Class definition | Function prototypes and data members)
 
+#pragma once
+
 class SnakeGame
 {
 public:

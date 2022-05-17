@@ -1,6 +1,8 @@
 // Snake - Headers with classes definitions
 // Input.h (Class definition | Function prototypes and data members)
 
+#pragma once
+
 class Input
 {
 public:

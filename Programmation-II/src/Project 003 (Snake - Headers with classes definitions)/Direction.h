@@ -1,6 +1,8 @@
 // Snake - Headers with classes definitions
 // Direction.h (Class definition | Function prototypes and data members)
 
+#pragma once
+
 class Direction
 {
 public:
