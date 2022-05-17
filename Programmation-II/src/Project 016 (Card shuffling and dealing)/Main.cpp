@@ -1,4 +1,4 @@
-// Card shuffling and dealing
+// Card shuffling and dealing 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
