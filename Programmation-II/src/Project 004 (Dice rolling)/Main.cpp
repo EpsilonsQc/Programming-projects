@@ -1,4 +1,4 @@
-// Dice rolling - Simulates the rolling of two dice
+// Dice rolling - Simulates the rolling of two dice 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include "RollDice.h"
