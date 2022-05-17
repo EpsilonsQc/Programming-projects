@@ -1,6 +1,8 @@
 // Fig. 3.8: Account.h
 // Account class with name and balance data members, and a constructor and deposit function that each perform validation.
 
+#pragma once
+
 #include <string>
 
 class Account
