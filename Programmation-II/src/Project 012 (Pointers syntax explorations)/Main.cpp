@@ -1,4 +1,4 @@
-// Pointers syntax explorations
+// Pointers syntax explorations 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
