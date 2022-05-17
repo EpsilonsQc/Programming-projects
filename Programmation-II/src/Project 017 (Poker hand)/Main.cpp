@@ -1,4 +1,4 @@
-// Poker hand
+// Poker hand 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
