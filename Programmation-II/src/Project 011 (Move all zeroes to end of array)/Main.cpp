@@ -1,4 +1,4 @@
-// Move all zeroes to end of array 
+// Move all zeroes to end of array
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include "MoveZeros.h"
