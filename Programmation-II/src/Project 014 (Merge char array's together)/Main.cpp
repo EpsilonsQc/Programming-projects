@@ -1,4 +1,4 @@
-// Merge array's of char together
+// Merge array's of char together 
 // Main.cpp (Main function | Program execution begins and ends there)
 
 #include <iostream>
