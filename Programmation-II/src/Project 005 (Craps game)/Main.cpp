@@ -1,4 +1,4 @@
-// Crap games - Simulation 
+// Crap games - Simulation
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include "Craps.h"
