@@ -1,5 +1,5 @@
 // Dice rolling - Simulates the rolling of two dice
-// RoleDice.h (Class definition | Function prototypes and data members)
+// RollDice.h (Class definition | Function prototypes and data members)
 
 #pragma once
 

@@ -1,7 +1,7 @@
 // Dice rolling - Simulates the rolling of two dice
-// RoleDice.cpp (Implementation file | Constructor and member functions definitions)
+// RollDice.cpp (Implementation file | Constructor and member functions definitions)
 
-#include "rollDice.h"
+#include "RollDice.h"
 #include <iostream>
 #include <iomanip>
 #include <array>
