@@ -61,7 +61,7 @@ public class Destroy : MonoBehaviour
     {
         if (destroyShapeShiftScript == true)
         {
-            Destroy(MyObject.GetComponent<ShapeShift>()); // Kills the gameObject "ShapeShift" script component in 3 seconds after loading the object
+            Destroy(MyObject.GetComponent<ShapeShift>()); // Kills the gameObject "ShapeShift" script component
         }
     }
 }
