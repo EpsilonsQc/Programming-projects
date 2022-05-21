@@ -25,22 +25,22 @@ public class CarMovement : MonoBehaviour
     // Move car
     void MoveCar()
     {
-        if (carMove == true)
+        if (carMove) // car movement allowed
         {
-            transform.position = Vector3.MoveTowards(transform.position, endPoint.transform.position, maxSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, endPoint.transform.position, Time.deltaTime * maxSpeed);
         }
     }
 
     // Enable-disable car movement
     static public void EnableCarMovement()
     {
-        if (carMove == true)
+        if (carMove) // car is moving
         {
-            carMove = false;
+            carMove = false; // stop the car movement
         }
-        else if (carMove == false)
+        else if (!carMove) // car is stopped
         {
-            carMove = true;
+            carMove = true; // start the car movement
         }
     }
 }
