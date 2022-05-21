@@ -133,11 +133,11 @@ public class WorldGenerator : MonoBehaviour
     public void AddCarMovementScript()
     {
         if (CarMovementScriptAdded == false) 
-            {
-                car.AddComponent<CarMovement>();
-                CarMovementScriptAdded = true;
-                CarMovement.carMove = true;
-            }
+        {
+            car.AddComponent<CarMovement>();
+            CarMovementScriptAdded = true;
+            CarMovement.carMove = true;
+        }
         else if (CarMovementScriptAdded == true)
         {
             CarMovement.EnableCarMovement();
