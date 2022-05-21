@@ -12,10 +12,6 @@ public class WorldGenerator : MonoBehaviour
     private GameObject car; // caravan
     private GameObject endPoint; // end point for caravan move
 
-    // Car parameters
-    private bool carActivated = false;
-    private bool CarMovementScriptAdded = false;
-
     // Car parts (gameObject)
     private GameObject front_left_wheel;
     private GameObject front_right_wheel;
@@ -46,13 +42,16 @@ public class WorldGenerator : MonoBehaviour
     private GameObject well_01;
     private GameObject well_02;
 
+    // Car parameters
+    private bool carActivated = false;
+    private bool CarMovementScriptAdded = false;
+
     // World generator parameters
-    private bool worldGenerated = false;
+    private bool worldAlreadyGenerated = false;
     private int rockAmount = 0;
     private int treeAmount = 0;
     private float worldSize = 0f;
     private int groundHeightVariation = 100; // default heigth variation for the ground prefab (Y-Axis)
-
 
     void Awake()
     {
@@ -149,7 +148,7 @@ public class WorldGenerator : MonoBehaviour
     public void GenerateWorld()
     {
         // Clear previous world generation (destroy all "clones")
-        if (worldGenerated == true)
+        if (worldAlreadyGenerated)
         {
             GameObject clone = GameObject.FindWithTag ("clone");
             Destroy(clone);
@@ -320,6 +319,6 @@ public class WorldGenerator : MonoBehaviour
                 well_02.transform.localScale = new Vector3(Random.Range(minScale, maxScale),Random.Range(minScale, maxScale),Random.Range(minScale, maxScale));
             }
 
-        worldGenerated = true;
+        worldAlreadyGenerated = true; // indicates that the world has been generated
     }
 }
