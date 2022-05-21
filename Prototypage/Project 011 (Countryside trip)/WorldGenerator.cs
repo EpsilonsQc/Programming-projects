@@ -51,7 +51,7 @@ public class WorldGenerator : MonoBehaviour
     private int rockAmount = 0;
     private int treeAmount = 0;
     private float worldSize = 0f;
-    private int groundHeightVariation = 100; // default heigth variation for the ground
+    private int groundHeightVariation = 100; // default heigth variation for the ground prefab (Y-Axis)
 
 
     void Awake()
