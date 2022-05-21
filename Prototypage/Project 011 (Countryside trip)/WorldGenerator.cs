@@ -7,7 +7,6 @@ public class WorldGenerator : MonoBehaviour
     // Ground
     private GameObject ground; // flat ground
     private MeshRenderer groundMR; // flat ground mesh renderer
-    private int groundHeightVariation = 100; // default heigth variation for the ground
 
     // Car
     private GameObject car; // caravan
@@ -33,12 +32,6 @@ public class WorldGenerator : MonoBehaviour
     private MeshRenderer van_bodyMR;
     private Canvas van_canvasCanvas;
 
-    // World generator parameters
-    private int rockAmount = 0;
-    private int treeAmount = 0;
-    private float worldSize = 0f;
-    private bool worldGenerated = false;
-
     // World assets
     private GameObject rock_01;
     private GameObject rock_02;
@@ -53,21 +46,26 @@ public class WorldGenerator : MonoBehaviour
     private GameObject well_01;
     private GameObject well_02;
 
+    // World generator parameters
+    private bool worldGenerated = false;
+    private int rockAmount = 0;
+    private int treeAmount = 0;
+    private float worldSize = 0f;
+    private int groundHeightVariation = 100; // default heigth variation for the ground
+
 
     void Awake()
     {
         ground = GameObject.Find("World Generator/ground/flat_ground");
-        groundMR = ground.GetComponent<MeshRenderer>();
 
         car = GameObject.Find("World Generator/car/caravan");
-        endPoint = GameObject.Find("World Generator/car/end_point");
-
         front_left_wheel = GameObject.Find("World Generator/car/caravan/front_left_wheel");
         front_right_wheel = GameObject.Find("World Generator/car/caravan/front_right_wheel");
         rear_left_wheel = GameObject.Find("World Generator/car/caravan/rear_left_wheel");
         rear_right_wheel = GameObject.Find("World Generator/car/caravan/rear_right_wheel");
         van_body = GameObject.Find("World Generator/car/caravan/van_body");
         van_canvas = GameObject.Find("World Generator/car/caravan/van_canvas");
+        endPoint = GameObject.Find("World Generator/car/end_point");
 
         rock_01 = GameObject.Find("World Generator/world_assets/rock_01");
         rock_02 = GameObject.Find("World Generator/world_assets/rock_02");
@@ -75,11 +73,12 @@ public class WorldGenerator : MonoBehaviour
         tree_cactus_02 = GameObject.Find("World Generator/world_assets/tree_cactus_02");
         tree_palm = GameObject.Find("World Generator/world_assets/tree_palm");
         tree_plant = GameObject.Find("World Generator/world_assets/tree_plant");
-
         bone_01 = GameObject.Find("World Generator/world_assets/bone_01");
         bone_02 = GameObject.Find("World Generator/world_assets/bone_02");
         well_01 = GameObject.Find("World Generator/world_assets/well_01");
         well_02 = GameObject.Find("World Generator/world_assets/well_02");
+
+        groundMR = ground.GetComponent<MeshRenderer>();
 
         front_left_wheelMR = front_left_wheel.GetComponent<MeshRenderer>();
         front_right_wheelMR = front_right_wheel.GetComponent<MeshRenderer>();
@@ -92,6 +91,58 @@ public class WorldGenerator : MonoBehaviour
         tree_cactus_02.AddComponent<WindSimulation>();
         tree_palm.AddComponent<WindSimulation>();
         tree_plant.AddComponent<WindSimulation>();
+    }
+
+    // Receive amount of ROCKS from input field
+    public void RockAmountInput(string rockAmountText)
+    {
+        rockAmount = int.Parse(rockAmountText);
+    }
+    // Receive amount of TREES from input field
+    public void TreeAmountInput(string treeAmountText)
+    {
+        treeAmount = int.Parse(treeAmountText);
+    }
+
+    // Receive WORLD SIZE from input field
+    public void WorldSizeInput(string worldSizeText)
+    {
+        worldSize = int.Parse(worldSizeText);
+    }
+
+    // Add car to world
+    public void AddCar()
+    {
+        carActivated = true;
+        CarMovement.carMove = false;
+
+        // Set car start location on the world
+        car.transform.position = new Vector3(0, 1, -worldSize * 4.25f);
+
+        // Set "move car" end point position
+        endPoint.transform.position = new Vector3(0, 0, worldSize * 4.25f);
+
+        // Show the car on screen (enable all MeshRenderer and Canvas)
+        front_left_wheelMR.enabled = true;
+        front_right_wheelMR.enabled = true;
+        rear_left_wheelMR.enabled = true;
+        rear_right_wheelMR.enabled = true;
+        van_bodyMR.enabled = true;
+        van_canvasCanvas.enabled = true;
+    }
+
+    public void AddCarMovementScript()
+    {
+        if (CarMovementScriptAdded == false) 
+            {
+                car.AddComponent<CarMovement>();
+                CarMovementScriptAdded = true;
+                CarMovement.carMove = true;
+            }
+        else if (CarMovementScriptAdded == true)
+        {
+            CarMovement.EnableCarMovement();
+        }
     }
 
     // Generate world
@@ -143,7 +194,7 @@ public class WorldGenerator : MonoBehaviour
          // Road offset
          float roadOffset = worldSize / 2;
 
-        // Random scale parameters for instenciations
+        // Random scale parameters for objects instenciations
         int minScale = 20;
         int maxScale = 60;
 
@@ -228,7 +279,7 @@ public class WorldGenerator : MonoBehaviour
             }
         }
 
-            // SPECIAL FACULTATIVE PROCEDURAL ITEMS - ESTHETIC ONLY. 
+        // ADD SPECIAL FACULTATIVE PROCEDURAL ITEMS - ESTHETIC ONLY. 
             // BONE 01
             for (int i = 0; i <= 1; ++i)
             {
@@ -270,57 +321,5 @@ public class WorldGenerator : MonoBehaviour
             }
 
         worldGenerated = true;
-    }
-
-    // Receive amount of ROCKS from input field
-    public void RockAmountInput(string rockAmountText)
-    {
-        rockAmount = int.Parse(rockAmountText);
-    }
-    // Receive amount of TREES from input field
-    public void TreeAmountInput(string treeAmountText)
-    {
-        treeAmount = int.Parse(treeAmountText);
-    }
-
-    // Receive WORLD SIZE from input field
-    public void WorldSizeInput(string worldSizeText)
-    {
-        worldSize = int.Parse(worldSizeText);
-    }
-
-    // Add car to world
-    public void AddCar()
-    {
-        carActivated = true;
-        CarMovement.carMove = false;
-
-        // Set car start location on the world
-        car.transform.position = new Vector3(0, 1, -worldSize * 4.25f);
-
-        // Set "move car" end point position
-        endPoint.transform.position = new Vector3(0, 0, worldSize * 4.25f);
-
-        // Show the car on screen (enable all MeshRenderer and Canvas)
-        front_left_wheelMR.enabled = true;
-        front_right_wheelMR.enabled = true;
-        rear_left_wheelMR.enabled = true;
-        rear_right_wheelMR.enabled = true;
-        van_bodyMR.enabled = true;
-        van_canvasCanvas.enabled = true;
-    }
-
-    public void AddCarMovementScript()
-    {
-        if (CarMovementScriptAdded == false) 
-            {
-                car.AddComponent<CarMovement>();
-                CarMovementScriptAdded = true;
-                CarMovement.carMove = true;
-            }
-        else if (CarMovementScriptAdded == true)
-        {
-            CarMovement.EnableCarMovement();
-        }
     }
 }
