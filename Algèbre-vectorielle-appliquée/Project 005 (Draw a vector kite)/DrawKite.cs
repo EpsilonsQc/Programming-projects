@@ -1,4 +1,4 @@
-﻿using System.Collections; 
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,9 +52,9 @@ public class DrawKite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(p1);
-        Debug.Log(p2);
-        Debug.Log(p3);
+        Debug.Log("P1: " + p1);
+        Debug.Log("P2: " + p2);
+        Debug.Log("P3: " + p3);
         RenderKite();
     }
 }
