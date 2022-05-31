@@ -1,4 +1,4 @@
-// Linked list of int using pointers
+// Linked list of int using pointers 
 //Node.h (Class definition | Function prototypes and data members)
 
 #pragma once
