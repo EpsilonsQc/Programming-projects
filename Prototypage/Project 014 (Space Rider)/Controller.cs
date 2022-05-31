@@ -17,6 +17,8 @@ public class Controller : MonoBehaviour
     [SerializeField] ParticleSystem ExhaustFX3;
     [SerializeField] ParticleSystem ExhaustFX4;
 
+    private float engineFXSpeed;
+
     void Start()
     {
         thisTransform = transform;
@@ -31,62 +33,44 @@ public class Controller : MonoBehaviour
         thisTransform.Rotate(new Vector3(0,horizontalInput,0) * rotationSpeed * Time.deltaTime);
         thisTransform.Translate(new Vector3(horizontalInput, 0, 0) * moveSpeed * Time.deltaTime);
         
-        StationnaryFX();
+        float spaceshipSpeed = moveSpeed;
+        engineFXSpeed = 0f;
 
-        float verticalInput = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.LeftShift)) // warp speed
         {
-            WarpSpeedFX();
-            thisTransform.Translate(new Vector3(0, 0, verticalInput) * warpSpeed * Time.deltaTime);
+            if (Input.GetKey(KeyCode.W)) // warp speed
+            {
+                spaceshipSpeed = warpSpeed;
+                engineFXSpeed = 15f;
+            }
         }
         else if (Input.GetKey(KeyCode.W)) // normal speed (forward)
         {
-            NormalSpeedFX();
-            thisTransform.Translate(new Vector3(0, 0, verticalInput) * moveSpeed * Time.deltaTime);
+            spaceshipSpeed = moveSpeed;
+            engineFXSpeed = 5f;
         }
         else if (Input.GetKey(KeyCode.S)) // normal speed (back)
         {
-            NormalSpeedFX();
-            thisTransform.Translate(new Vector3(0, 0, verticalInput) * moveSpeed * Time.deltaTime);
+            spaceshipSpeed = moveSpeed;
+            engineFXSpeed = 5f;
         }
+
+        EngineSpeedFX();
+
+        float verticalInput = Input.GetAxis("Vertical");
+        thisTransform.Translate(new Vector3(0, 0, verticalInput) * spaceshipSpeed * Time.deltaTime);
     }
 
-    void StationnaryFX()
+    void EngineSpeedFX()
     {
         var nFX1 = ExhaustFX1.main;
         var nFX2 = ExhaustFX2.main;
         var nFX3 = ExhaustFX3.main;
         var nFX4 = ExhaustFX4.main;
         
-        nFX1.startSpeed = 0f;
-        nFX2.startSpeed = 0f;
-        nFX3.startSpeed = 0f;
-        nFX4.startSpeed = 0f;
-    }
-
-    void NormalSpeedFX()
-    {
-        var FX1 = ExhaustFX1.main;
-        var FX2 = ExhaustFX2.main;
-        var FX3 = ExhaustFX3.main;
-        var FX4 = ExhaustFX4.main;
-
-        FX1.startSpeed = 5f;
-        FX2.startSpeed = 5f;
-        FX3.startSpeed = 5f;
-        FX4.startSpeed = 5f;
-    }
-
-    void WarpSpeedFX()
-    {
-        var FX1 = ExhaustFX1.main;
-        var FX2 = ExhaustFX2.main;
-        var FX3 = ExhaustFX3.main;
-        var FX4 = ExhaustFX4.main;
-
-        FX1.startSpeed = 15f;
-        FX2.startSpeed = 15f;
-        FX3.startSpeed = 15f;
-        FX4.startSpeed = 15f;
+        nFX1.startSpeed = engineFXSpeed;
+        nFX2.startSpeed = engineFXSpeed;
+        nFX3.startSpeed = engineFXSpeed;
+        nFX4.startSpeed = engineFXSpeed;
     }
 }

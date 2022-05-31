@@ -1,4 +1,4 @@
-using System.Collections; 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +21,7 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         // Early out if we don't have a target
-	if (!target) // if target == null
+        if (!target) // if target == null
         {
             Debug.Log("[CAMERA] No target detected. Please add a target in the inspector.");
             return;
