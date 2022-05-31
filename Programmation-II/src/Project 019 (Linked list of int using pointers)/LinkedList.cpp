@@ -98,7 +98,7 @@ void LinkedList::remove(int index)
 	}
 	else
 	{
-		cout << "Invalid index" << endl;
+		cout << endl << "[Error] Invalid index" << endl;
 	}
 }
 
@@ -138,7 +138,7 @@ int LinkedList::indexOf(int value) const
 		node = node->next;
 	}
 
-	cout << "Cannot find value" << endl;
+	cout << endl << "[Error] Cannot find value" << endl;
 
 	return -1;
 }

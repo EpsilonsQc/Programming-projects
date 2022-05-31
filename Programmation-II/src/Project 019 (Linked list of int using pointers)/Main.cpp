@@ -10,43 +10,23 @@ using namespace std;
 
 int main()
 {
-	array<int, 5> myArray = { 0, 0, 0, 0, 0 };
-	vector<int> myVector;
-
 	LinkedList MyLinkedListObj;
 
-	cout << "myArray size: " << myArray.size() << endl;
-	cout << "myVector size: " << myVector.size() << endl;
-	cout << "MyLinkedListObj size: " << MyLinkedListObj.size() << endl << endl;
+	MyLinkedListObj.add(1111);
+	cout << "LinkedList size: " << MyLinkedListObj.size() << endl;
+	cout << "LinkedList get 0: " << MyLinkedListObj.get(0) << endl << endl;
 
-	myVector.push_back(333);
-	MyLinkedListObj.add(333);
+	MyLinkedListObj.add(2222);
+	cout << "LinkedList size: " << MyLinkedListObj.size() << endl;
+	cout << "LinkedList get 0: " << MyLinkedListObj.get(0) << endl;
+	cout << "LinkedList get 1: " << MyLinkedListObj.get(1) << endl << endl;
 
-	cout << "myVector size: " << myVector.size() << endl;
-	cout << "MyLinkedListObj size: " << MyLinkedListObj.size() << endl << endl;
-
-	cout << "myVector at subscript 0: " << myVector.at(0) << endl;
-	cout << "MyLinkedListObj get 0: " << MyLinkedListObj.get(0) << endl << endl;
-
-	myVector.push_back(666);
-	MyLinkedListObj.add(666);
-
-	cout << "myVector size: " << myVector.size() << endl;
-	cout << "MyLinkedListObj size: " << MyLinkedListObj.size() << endl << endl;
-
-	cout << "myVector at subscript 1: " << myVector.at(1) << endl;
-	cout << "MyLinkedListObj get 1: " << MyLinkedListObj.get(1) << endl << endl;
-
-	cout << "myVector at subscript 0: " << myVector.at(0) << endl;
-	cout << "MyLinkedListObj get 0: " << MyLinkedListObj.get(0) << endl << endl;
-
-	cout << "MyLinkedListObj get 333: " << MyLinkedListObj.indexOf(333) << endl;
-	cout << "MyLinkedListObj get 666: " << MyLinkedListObj.indexOf(666) << endl << endl;
-
-	cout << "MyLinkedListObj get 999: " << MyLinkedListObj.indexOf(999) << endl << endl;
+	cout << "LinkedList get 1111: " << MyLinkedListObj.indexOf(1111) << endl;
+	cout << "LinkedList get 2222: " << MyLinkedListObj.indexOf(2222) << endl;
+	cout << "LinkedList get 3333: " << MyLinkedListObj.indexOf(3333) << endl << endl;
 
 	MyLinkedListObj.clear();
-	cout << "MyLinkedListObj.size after clear: " << MyLinkedListObj.size() << endl << endl;
+	cout << "LinkedList size after clear: " << MyLinkedListObj.size() << endl << endl;
 
 	cout << "Add value 1, 2, 3, 4, 5, 6, 7, 8, 9 :" << endl;
 	MyLinkedListObj.add(1);
