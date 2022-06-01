@@ -12,14 +12,14 @@ public class LoadScene : MonoBehaviour
     [SerializeField] Image textLoadingPercentageImg;
     [SerializeField] Image loadingBarImg;
     [SerializeField] Image loadingBarProgressImg;
-    [SerializeField] TextMeshProUGUI StartGameText;
-    [SerializeField] TextMeshProUGUI LoadingPercentageText;
+    [SerializeField] TextMeshProUGUI loadGameButtonText;
+    [SerializeField] TextMeshProUGUI loadingPercentageText;
     [Space(15)]
 
     [Header("BOOLEAN PARAMETERS")]
     [SerializeField] bool startLoadingScene = false;
     [SerializeField] bool sceneIsLoaded = false;
-    [SerializeField] bool EnterScene = false;
+    [SerializeField] bool enterScene = false;
     [Space(15)]
 
     [Header("VARIABLES")]
@@ -37,8 +37,8 @@ public class LoadScene : MonoBehaviour
         loadingBarImg = GameObject.Find("Canvas/Loading Bar (Image)").GetComponent<Image>();
         loadingBarProgressImg = GameObject.Find("Canvas/Loading Bar (Image)/Loading Bar Progress (Image)").GetComponent<Image>();
 
-        StartGameText = GameObject.Find("Canvas/Load Game (Button)/Load Game (Text)").GetComponent<TextMeshProUGUI>();
-        LoadingPercentageText = GameObject.Find("Canvas/Loading Percentage (Image)/Loading Percentage (Text)").GetComponent<TextMeshProUGUI>();
+        loadGameButtonText = GameObject.Find("Canvas/Load Game (Button)/Load Game (Text)").GetComponent<TextMeshProUGUI>();
+        loadingPercentageText = GameObject.Find("Canvas/Loading Percentage (Image)/Loading Percentage (Text)").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class LoadScene : MonoBehaviour
             loadingBarProgressImg.enabled = true;
 
             textLoadingProgress += changePerSecond * Time.deltaTime;
-            LoadingPercentageText.text = ((int)textLoadingProgress + "%");
+            loadingPercentageText.text = ((int)textLoadingProgress + "%");
 
             loadingBarProgressImg.fillAmount = (float)textLoadingProgress / 100f;
         }
@@ -77,11 +77,11 @@ public class LoadScene : MonoBehaviour
 
                 if(textLoadingProgress >= 100)
                 {
-                    StartGameText.text = "Start";
+                    loadGameButtonText.text = "Start";
                     sceneIsLoaded = true;
                     loadGameButton.onClick.RemoveListener(StartLoadingScene);
 
-                    if(EnterScene == true)
+                    if(enterScene == true)
                     {
                         asyncLoad.allowSceneActivation = true;
                         loadGameButton.onClick.RemoveListener(EnterTheScene);
@@ -97,7 +97,7 @@ public class LoadScene : MonoBehaviour
     {
         if(sceneIsLoaded == true)
         {
-            EnterScene = true;
+            enterScene = true;
         }
     }
 }
