@@ -7,7 +7,8 @@ namespace MyDebug
     public class Point
     {
         static int ID = 0;
-        //Draws a Point at a specified coordinate.
+
+        // Draws a Point at a specified coordinate.
         public static GameObject DrawNewPoint(Vector2 Position, float width, Color color)
         {
             GameObject newPoint = new GameObject("Point" + "(" + ID + ")");
@@ -19,6 +20,7 @@ namespace MyDebug
             ID += 1;
             return newPoint;
         }
+
         private static void DrawPoint(LineRenderer pointRenderer, Vector2 pos, float width)
         {
             pointRenderer.positionCount = 2;
@@ -27,8 +29,5 @@ namespace MyDebug
             pointRenderer.startWidth = width;
             pointRenderer.endWidth = width;
         }
-
     }
-
 }
-

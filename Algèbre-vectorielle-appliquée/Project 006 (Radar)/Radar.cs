@@ -7,7 +7,7 @@ public class Radar : MonoBehaviour
     public int nbTargets;
     public float radarSpeed = 45f;
     public float guideNorme = 50f;
-
+    
     [SerializeField] GameObject radarAxes;
     [SerializeField] GameObject radarGuide;
 
@@ -28,23 +28,26 @@ public class Radar : MonoBehaviour
         ScanTargets();
     }
 
+    // Produit vectoriel (2D : retourne une valeur scalaire représentant l'ampleur du résultat)
     private float CrossProduct(Vector2 vec1, Vector2 vec2)
     {
-        //TODO -> cross product for 2D vector : return a scalar
-        float result = 0f;
+        float result = (vec1.x * vec2.y) - (vec1.y * vec2.x); // Équivalent de Vector2.Cross(vec1, vec2) [mais n'existe pas pour 2D dans Unity]
+
         return result;
     }
 
+    // Produit scalaire (retourne une valeur scalaire)
     private float DotProduct(Vector2 vec1, Vector2 vec2)
     {
-        //TODO -> dot product (also called scalar product) for 2D vector : return a scalar
-        float result = 0f;
+        float result = (vec1.x * vec2.x) + (vec1.y * vec2.y); // Équivalent de Vector2.Dot(vec1, vec2);
+
         return result;
     }
 
     private void InitTargets()
     {
         float range = guideNorme - 10f;
+
         for (int i = 0; i < targets.Length; i++)
         {
             Vector2 randPos = new Vector2(Random.Range(-range, range), Random.Range(-range, range));
@@ -63,9 +66,33 @@ public class Radar : MonoBehaviour
         radarGuide.transform.position = radarForward * guideNorme;
     }
 
+    // Changer la couleur des cibles en fonction de la position relative du radar
     private void ScanTargets()
     {
-        // TODO : Change the color of targets depending on relative position of the radar forward
+        for (int i = 0; i < targets.Length; i++)
+        {
+            // Dot Product: En utilisant le résultat, nous pouvons dire si l'objet est devant (> 0) ou derrière (< 0) nous.
+            float dotProductResult = DotProduct(targets[i].getPosition(), radarForward);
 
+            // Cross Product : En utilisant le résultat, nous pouvons dire si l'objet est à gauche (> 0) ou à droite (< 0).
+            float crossProductResult = CrossProduct(targets[i].getPosition(), radarForward);
+
+            if(dotProductResult > 0 && crossProductResult > 0) // Front left
+            {
+                targets[i].SetMyRelativeDirection(RelativeDirection.FrontLeft);
+            }
+            else if(dotProductResult > 0 && crossProductResult < 0) // Front right
+            {
+                targets[i].SetMyRelativeDirection(RelativeDirection.FrontRight);
+            }
+            else if(dotProductResult < 0 && crossProductResult > 0) // Rear left
+            {
+                targets[i].SetMyRelativeDirection(RelativeDirection.RearLeft);
+            }
+            else if(dotProductResult < 0 && crossProductResult < 0) // Rear right
+            {
+                targets[i].SetMyRelativeDirection(RelativeDirection.RearRight);
+            }
+        }
     }
 }

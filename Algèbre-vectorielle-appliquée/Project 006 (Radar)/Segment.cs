@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 namespace MyDebug
 {
     public class Segment
     {
         static int ID = 0;
-        //Draws a line between specified start and end points.
+
+        // Draws a line between specified start and end points.
         public static void DrawNewSegment(Vector2 startPoint, Vector2 endPoint, float width, Color color)
         {
             GameObject newAxe = new GameObject("Axe"+ "("+ID+")");
@@ -19,6 +19,7 @@ namespace MyDebug
             DrawLine(lineRenderer, startPoint, endPoint, width);
             ID += 1;
         }
+
         private static void DrawLine(LineRenderer lineRenderer, Vector2 startPoint, Vector2 endPoint, float width)
         {
             lineRenderer.positionCount = 2;
@@ -29,4 +30,3 @@ namespace MyDebug
         }
     }
 }
-
