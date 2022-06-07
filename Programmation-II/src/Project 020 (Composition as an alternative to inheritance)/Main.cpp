@@ -1,4 +1,4 @@
-// Composition as an alternative to inheritance
+// Composition as an alternative to inheritance 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include "CommissionEmployee.h" // CommissionEmployee class definition
