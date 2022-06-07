@@ -1,4 +1,4 @@
-// Composition as an alternative to inheritance 
+// Composition as an alternative to inheritance
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include "CommissionEmployee.h" // CommissionEmployee class definition
@@ -10,26 +10,26 @@ using namespace std;
 
 int main()
 {
-	cout << "###############################################" << endl;
+	//cout << "###############################################" << endl;
 
-	// instantiate CommissionEmployee object
-	CommissionEmployee employee{ "Sue", "Jones", "222-222-222", 10000, .06 };
+	//// instantiate CommissionEmployee object
+	//CommissionEmployee employee{ "Sue", "Jones", "222-222-222", 10000, .06 };
 
-	// get commission employee data
-	cout << "\nEmployee information obtained by get functions:"
-		<< "\nFirst name is " << employee.getFirstName()
-		<< "\nLast name is " << employee.getLastName()
-		<< "\nSocial security number is " << employee.getSocialSecurityNumber()
-		<< "\nGross sales is " << employee.getGrossSales()
-		<< "\nCommision rate is " << employee.getCommissionRate() << endl;
+	//// get commission employee data
+	//cout << "\nEmployee information obtained by get functions:"
+	//	<< "\nFirst name is " << employee.getFirstName()
+	//	<< "\nLast name is " << employee.getLastName()
+	//	<< "\nSocial security number is " << employee.getSocialSecurityNumber()
+	//	<< "\nGross sales is " << employee.getGrossSales()
+	//	<< "\nCommision rate is " << employee.getCommissionRate() << endl;
 
-	employee.setGrossSales(8000); // set gross sales
-	employee.setCommissionRate(.1); // set commission rate
+	//employee.setGrossSales(8000); // set gross sales
+	//employee.setCommissionRate(.1); // set commission rate
 
-	cout << "\nUpdated employee information from function to String:\n" << employee.toString();
+	//cout << "\nUpdated employee information from function to String:\n" << employee.toString();
 
-	// display the commission employee's earning
-	cout << "\nEmployee's earnings: $" << employee.earnings() << endl << endl;
+	//// display the commission employee's earning
+	//cout << "\nEmployee's earnings: $" << employee.earnings() << endl << endl;
 	cout << "###############################################" << endl;
 
 	// instantiate BasePlusCommissionEmployee object
