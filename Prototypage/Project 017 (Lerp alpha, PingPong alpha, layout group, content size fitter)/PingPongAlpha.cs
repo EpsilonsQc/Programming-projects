@@ -16,7 +16,6 @@ public class PingPongAlpha : MonoBehaviour
 
     void Update()
     {
-        // With PingPong
         myCanvasGroup.alpha = (Mathf.PingPong(Time.time / myTimer, length));
     }
 }
