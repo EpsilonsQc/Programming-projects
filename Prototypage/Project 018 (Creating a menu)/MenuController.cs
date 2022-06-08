@@ -16,9 +16,9 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Sprite[] sprites;
 
     [Header("TEXT FIELDS")] 
-    [SerializeField] private TextMeshProUGUI  objectName;
-    [SerializeField] private TextMeshProUGUI  price;
-    [SerializeField] static public TextMeshProUGUI  totalCost;
+    [SerializeField] private TextMeshProUGUI objectName;
+    [SerializeField] private TextMeshProUGUI price;
+    [SerializeField] static public TextMeshProUGUI totalCost;
 
     static public int instanceCount = 0;
 
