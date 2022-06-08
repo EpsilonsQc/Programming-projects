@@ -1,4 +1,4 @@
-using System.Collections; 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +25,6 @@ public class MenuController : MonoBehaviour
     private int minPrice = 5;
     private int maxPrice = 250;
     private int actualPrice = 0;
-    private string actualPriceString = "";
     static public int totalPrice = 0;
 
     private int minSprites = 0;
@@ -34,9 +33,9 @@ public class MenuController : MonoBehaviour
 
     void Awake()
     {
-        template = GameObject.Find("template");
+        template = GameObject.Find("Canvas/template");
         inventory = GameObject.Find("Canvas/img_inventory");
-        spriteRenderer = GameObject.Find("template/button/sprite_renderer").GetComponent<SpriteRenderer>();
+        spriteRenderer = GameObject.Find("Canvas/template/sprite_renderer").GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>("");
 
         objectName = GameObject.Find("template/button/text_object_name").GetComponent<TextMeshProUGUI>();
@@ -56,15 +55,15 @@ public class MenuController : MonoBehaviour
             objectName.text = spriteRenderer.sprite.name;
 
             actualPrice = Random.Range(minPrice, maxPrice);
-            actualPriceString = actualPrice.ToString();
             price.text =  actualPrice.ToString();
 
             totalPrice = totalPrice + actualPrice;
 
             totalCost.text = totalPrice.ToString();
 
-            GameObject clone = Instantiate(template, transform.parent = inventory.transform);
-            clone.name = "clone";
+            GameObject clone = Instantiate(template);
+            clone.transform.SetParent(inventory.transform, false);
+            clone.name = spriteRenderer.sprite.name + " (" + actualPrice.ToString() + "$)";
         }
     }
 }
