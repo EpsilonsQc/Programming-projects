@@ -1,7 +1,6 @@
-using System.Collections; 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class VectorsDistanceCalc : MonoBehaviour
 {
@@ -57,7 +56,6 @@ public class VectorsDistanceCalc : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         vectorToTarget = GetTargetDirection();
