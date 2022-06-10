@@ -22,8 +22,8 @@ public class MenuController : MonoBehaviour
 
     static public int instanceCount = 0;
 
-    private int minPrice = 5;
-    private int maxPrice = 250;
+    private int minPrice = 1;
+    private int maxPrice = 2500;
     private int actualPrice = 0;
     static public int totalPrice = 0;
 
@@ -39,8 +39,8 @@ public class MenuController : MonoBehaviour
         sprites = Resources.LoadAll<Sprite>("");
 
         objectName = GameObject.Find("template/button/text_object_name").GetComponent<TextMeshProUGUI>();
-        price = GameObject.Find("template/button/text_price").GetComponent<TextMeshProUGUI>();
-        totalCost = GameObject.Find("img_total_cost/text_total_cost").GetComponent<TextMeshProUGUI>();
+        price = GameObject.Find("template/button/text_price_group/text_price").GetComponent<TextMeshProUGUI>();
+        totalCost = GameObject.Find("btn_total_cost/text_total_cost").GetComponent<TextMeshProUGUI>();
     }
 
     public void AddRandomItem()
@@ -58,10 +58,10 @@ public class MenuController : MonoBehaviour
             price.text =  actualPrice.ToString();
 
             totalPrice = totalPrice + actualPrice;
-
             totalCost.text = totalPrice.ToString();
 
             GameObject clone = Instantiate(template);
+            clone.SetActive(true);
             clone.transform.SetParent(inventory.transform, false);
             clone.name = spriteRenderer.sprite.name + " (" + actualPrice.ToString() + "$)";
         }
