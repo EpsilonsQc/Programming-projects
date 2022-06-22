@@ -1,4 +1,4 @@
-// Snake
+// Snake 
 // Main.cpp (Main function | Program execution begins and ends there)
 
 #include <time.h>
