@@ -14,8 +14,6 @@ public class Magician : BeingAlive
     // Debug.Log
     public void ConsoleLog()
     {
-        Debug.Log("Name: " + name);
-        Debug.Log("Health: " + health);
-        Debug.Log("Mana: " + mana);
+        Debug.LogFormat("Heroes name : {0} - Health : {1} - Mana : {2}", name, health, mana);
     }
 }
