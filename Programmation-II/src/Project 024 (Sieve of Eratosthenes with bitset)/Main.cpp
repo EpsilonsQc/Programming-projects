@@ -1,4 +1,4 @@
-// Sieve of Eratosthenes with bitset
+// Sieve of Eratosthenes with bitset 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
