@@ -1,4 +1,4 @@
-// Telephone-number word generator
+// Telephone-number word generator 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
