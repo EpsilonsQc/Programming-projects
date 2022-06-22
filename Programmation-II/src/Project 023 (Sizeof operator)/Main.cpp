@@ -1,4 +1,4 @@
-// Sizeof operator
+// Sizeof operator 
 // Main.cpp (Main function | Program execution begins and ends there) 
 
 #include <iostream>
