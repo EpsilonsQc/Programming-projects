@@ -48,7 +48,6 @@ namespace HeroicFantasy.UI.WorldSpace
             }
         }
 
-
         // On-Click, tell a story.
         private void TellStory()
         {
