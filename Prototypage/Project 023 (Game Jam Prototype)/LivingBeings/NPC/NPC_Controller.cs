@@ -38,8 +38,10 @@ namespace HeroicFantasy.LivingBeings
         [SerializeField] private float lerpInterpolationRatio;
 
         [Header("VARIABLES")]
-        [SerializeField] private bool invoke;
-        [SerializeField] private int rayLength;
+        [SerializeField] private bool invoke;        
+        [SerializeField] private int rayLength; // used for drawing a ray in the scene view
+        
+        #if UNITY_EDITOR // compilation directive (exclude from build)  
 
         private void OnDrawGizmos()
         {
@@ -47,6 +49,7 @@ namespace HeroicFantasy.LivingBeings
             Handles.DrawWireDisc(initialPosition, Vector3.up, (movementRangeMax - movementRangeMin));
             Debug.DrawRay(transform.position, actualDirection * rayLength, Color.red);
         }
+        #endif // compilation directive (exclude from build)
 
         private void Awake()
         {

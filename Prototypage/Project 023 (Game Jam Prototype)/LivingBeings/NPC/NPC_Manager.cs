@@ -61,6 +61,7 @@ namespace HeroicFantasy.LivingBeings
         {
             if(NPC.currentHP <= 0)
             {
+                Debug.Log("You killed " + NPC.name + ".");
                 player.GainXP(NPC_XpOnDeath); // player gain XP
 
                 NPC.currentHP = (int)NPC_Health.maxValue; // restore NPC current HP to the max value

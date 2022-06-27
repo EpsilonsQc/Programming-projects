@@ -53,6 +53,7 @@ namespace HeroicFantasy.LivingBeings
             thisTransform.Rotate(new Vector3(0, horizontalInput, 0) * rotationSpeed * Time.deltaTime);
         }
 
+        #if UNITY_EDITOR // compilation directive (exclude from build)
         #region ON VALIDATE
         private void OnValidate()
         {
@@ -96,5 +97,6 @@ namespace HeroicFantasy.LivingBeings
             }
         }
         #endregion
+        #endif // compilation directive (exclude from build)
     }
 }
