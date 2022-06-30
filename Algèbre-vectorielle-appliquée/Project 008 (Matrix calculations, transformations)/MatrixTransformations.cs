@@ -170,6 +170,7 @@ public class MatrixTransformations : MonoBehaviour
     private Matrix4x4 GetScalingMatrix(Vector3 deltaScale)
     {
         Matrix4x4 mat = Matrix4x4.identity;
+        
         mat.SetRow(0, new Vector4(deltaScale.x, 0,               0,             0));
         mat.SetRow(1, new Vector4(0,            deltaScale.y,    0,             0));
         mat.SetRow(2, new Vector4(0,            0,               deltaScale.z,  0));
@@ -182,6 +183,7 @@ public class MatrixTransformations : MonoBehaviour
     private Matrix4x4 GetRotationMatrixX(Vector3 deltaRotation)
     {
         Matrix4x4 mat = Matrix4x4.identity;
+
         mat.m11 = Mathf.Cos(deltaRotation.x);
         mat.m12 = -Mathf.Sin(deltaRotation.x);
         mat.m21 = Mathf.Sin(deltaRotation.x);
@@ -194,6 +196,7 @@ public class MatrixTransformations : MonoBehaviour
     private Matrix4x4 GetRotationMatrixY(Vector3 deltaRotation)
     {
         Matrix4x4 mat = Matrix4x4.identity;
+
         mat.m00 = Mathf.Cos(deltaRotation.y);
         mat.m02 = -Mathf.Sin(deltaRotation.y);
         mat.m20 = Mathf.Sin(deltaRotation.y);
@@ -206,6 +209,7 @@ public class MatrixTransformations : MonoBehaviour
     private Matrix4x4 GetRotationMatrixZ(Vector3 deltaRotation)
     {
         Matrix4x4 mat = Matrix4x4.identity;
+
         mat.m00 = Mathf.Cos(deltaRotation.z);
         mat.m01 = Mathf.Sin(deltaRotation.z);
         mat.m10 = -Mathf.Sin(deltaRotation.z);
