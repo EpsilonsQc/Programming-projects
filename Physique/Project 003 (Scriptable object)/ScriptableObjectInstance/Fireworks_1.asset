@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa87b2ed38d8304e800333965613bf8, type: 3}
+  m_Name: Fireworks_1
+  m_EditorClassIdentifier: 
+  speedMin: 0.5
+  speedMax: 1
+  sizeMin: 0.1
+  sizeMax: 0.5
+  nbParticles: 20
+  lifeTime: 1
+  sizeGrowth: 0.1
+  startColor: {r: 1, g: 0.81996113, b: 0, a: 0}
+  endColor: {r: 1, g: 0, b: 0, a: 0}
+  Prefab: {fileID: 2523318253910999875, guid: 81fbb38b7fbe84d469a25db75411b1a4, type: 3}
