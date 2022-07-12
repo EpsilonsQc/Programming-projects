@@ -1,4 +1,4 @@
-using UnityEngine;
+using UnityEngine; 
 
 [CreateAssetMenu(fileName = "NewFireworks", menuName = "Data/Fireworks/FireworksData")]
 
